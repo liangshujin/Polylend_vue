@@ -112,7 +112,7 @@ export default {
       otherQuery: {}
     }
   },
-  watch: {
+  /* watch: {
     $route: {
       handler: function(route) {
         const query = route.query
@@ -123,7 +123,7 @@ export default {
       },
       immediate: true
     }
-  },
+  },*/
   created() {
     // window.addEventListener('storage', this.afterQRScan)
   },
