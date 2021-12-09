@@ -8,7 +8,7 @@
 export default {
   name: 'App',
   created() {
-    this.web3Init()
+    // this.web3Init()
   },
   methods: {
     /* 实例化Web3*/
