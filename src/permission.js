@@ -1,14 +1,14 @@
 import router from './router'
 import store from './store'
-import { Message } from 'element-ui'
+// import { Message } from 'element-ui'
 import NProgress from 'nprogress' // progress bar
 import 'nprogress/nprogress.css' // progress bar style
-import { getToken } from '@/utils/auth' // get token from cookie
+// import { getToken } from '@/utils/auth' // get token from cookie
 import getPageTitle from '@/utils/get-page-title'
 
 NProgress.configure({ showSpinner: false }) // NProgress Configuration
 
-const whiteList = ['/login', '/auth-redirect'] // no redirect whitelist
+// const whiteList = ['/login', '/auth-redirect'] // no redirect whitelist
 
 router.beforeEach(async(to, from, next) => {
   // start progress bar
@@ -16,7 +16,7 @@ router.beforeEach(async(to, from, next) => {
 
   // set page title
   document.title = getPageTitle(to.meta.title)
-
+  /*
   // determine whether the user has logged in
   const hasToken = getToken()
 
@@ -57,8 +57,9 @@ router.beforeEach(async(to, from, next) => {
       }
     }
   } else {
-    /* has no token*/
-
+  */
+  /* has no token*/
+  /*
     if (whiteList.indexOf(to.path) !== -1) {
       // in the free login whitelist, go directly
       next()
@@ -67,6 +68,17 @@ router.beforeEach(async(to, from, next) => {
       next(`/login?redirect=${to.path}`)
       NProgress.done()
     }
+  }
+  */
+
+  const hasToken = 'admin-token'
+  const role = 'admin'
+  if (hasToken) {
+    next()
+    const accessRoutes = await store.dispatch('permission/generateRoutes', role)
+
+    // dynamically add accessible routes
+    router.addRoutes(accessRoutes)
   }
 })
 

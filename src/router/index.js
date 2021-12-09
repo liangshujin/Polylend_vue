@@ -61,7 +61,7 @@ export const constantRoutes = [
         path: 'dashboard',
         component: () => import('@/views/dashboard/index'),
         name: 'Dashboard',
-        meta: { title: 'Dashboard', icon: 'dashboard', affix: true }
+        meta: { title: 'Lending', icon: 'dashboard', affix: true }
       }
     ]
   },
@@ -73,7 +73,7 @@ export const constantRoutes = [
         path: 'index',
         component: () => import('@/views/documentation/index'),
         name: 'Documentation',
-        meta: { title: 'Documentation', icon: 'documentation', affix: true }
+        meta: { title: 'Farms', icon: 'documentation', affix: true }
       }
     ]
   }
@@ -84,6 +84,7 @@ export const constantRoutes = [
  * the routes that need to be dynamically loaded based on user roles
  */
 export const asyncRoutes = [
+  /*
   {
     path: '/permission',
     component: Layout,
@@ -97,6 +98,7 @@ export const asyncRoutes = [
     },
     children: []
   },
+  */
 
   {
     path: '/icon',
